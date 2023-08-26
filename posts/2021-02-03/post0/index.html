@@ -12,7 +12,7 @@
 <meta property="og:description" content="Тэорыя Калі пачнеце знаёміцца з тым як будуецца лакацыя ў гульне, то дакладна сутыкнёцеся з сектарамі і парталамі. Тэорыя дастаткова сталая і ёсць меркванне што дужа архаічная. Партальныя рэндэры (менавіта так гэта называецца) добра працуюць у закрытых прасторах &ndash; пакоях і калідорах, але калі рабіць на іх опэнворлд, то пачынаюцца праблемы. Іх мы маем таксама.
 У агульным выпадку, не мае сэнсу маляваць усю геаметрыю адразу: трэба максімальна дакладна вызначыць тыя аб&rsquo;екты якія трапяць у кадр." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vturbine.github.io/posts/2021-02-03/post0/" />
+<meta property="og:url" content="https://vturbine.github.io/posts/2021-02-03/post0/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-02-03T16:50:54+00:00" />
 <meta property="article:modified_time" content="2021-02-03T16:50:54+00:00" />
 
@@ -253,59 +253,59 @@
 <li><code>IDp</code> &ndash; індэксы парталаў з чанка парталаў</li>
 <li><code>b_portal</code> &ndash; структура серыялізаванага партала</li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">b_portal</span>
-{
-	u16 		face; <span style="color:#998;font-style:italic">// сектар уперадзе
-</span><span style="color:#998;font-style:italic"></span>	u16 		back; <span style="color:#998;font-style:italic">// сектар ззаду
-</span><span style="color:#998;font-style:italic"></span>	Fvector[<span style="color:#099">6</span>] 	poly; <span style="color:#998;font-style:italic">// форма паратала
-</span><span style="color:#998;font-style:italic"></span>};
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">b_portal</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	u16 		face; <span style="color:#998;font-style:italic">// сектар уперадзе
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	u16 		back; <span style="color:#998;font-style:italic">// сектар ззаду
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	Fvector[<span style="color:#099">6</span>] 	poly; <span style="color:#998;font-style:italic">// форма паратала
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="вызначэнне-сектара">Вызначэнне сектара</h3>
 <p>Адбываецца у <code>CRender::Calculate</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="font-weight:bold">if</span> (<span style="font-weight:bold">!</span>vLastCameraPos.similar(CameraPosition, EPS_S))
-{
-    CSector<span style="font-weight:bold">*</span> pSector <span style="font-weight:bold">=</span> detectSector(CameraPosition);
-    <span style="font-weight:bold">if</span> (pSector)
-    {
-        <span style="font-weight:bold">if</span> (pSector <span style="font-weight:bold">!=</span> pLastSector)
-        	g_pGamePersistent<span style="font-weight:bold">-&gt;</span>OnSectorChanged(translateSector(pSector));
-    }
-    <span style="font-weight:bold">else</span>
-        pSector <span style="font-weight:bold">=</span> pLastSector;
-
-    pLastSector <span style="font-weight:bold">=</span> pSector;
-    vLastCameraPos.set(CameraPosition);
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="font-weight:bold">if</span> (<span style="font-weight:bold">!</span>vLastCameraPos.similar(CameraPosition, EPS_S))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CSector<span style="font-weight:bold">*</span> pSector <span style="font-weight:bold">=</span> detectSector(CameraPosition);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">if</span> (pSector)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">if</span> (pSector <span style="font-weight:bold">!=</span> pLastSector)
+</span></span><span style="display:flex;"><span>        	g_pGamePersistent<span style="font-weight:bold">-&gt;</span>OnSectorChanged(translateSector(pSector));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        pSector <span style="font-weight:bold">=</span> pLastSector;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pLastSector <span style="font-weight:bold">=</span> pSector;
+</span></span><span style="display:flex;"><span>    vLastCameraPos.set(CameraPosition);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Кожны фрэйм глядзім як змянілася пазіцыя камеры, каб пачаць турбавацца ці не трапілі мы ў наступны сектар. Калі так, то трэба вызначыць новы сектар і паведаміць пра гэта іншым падсістэмам. /Апошнім, на самой справе, скарыстаецца толькі код аднаўлення мінімапы у сеткавай гульне./</p>
 <p>Эпсілан можна зрабіць і менш, так як пакуль стаіш на месцы камера рухаецца ўверх-ніз на велічыню дастатковую, каб трыгернуць пералік сектара (але сектар так і застаецца тым жа).</p>
@@ -313,67 +313,67 @@
 <ul>
 <li>
 <p>сярод парталаў</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">Sectors_xrc.ray_query(PortalsModel, P, dir, <span style="color:#099">500.0f</span>);
-<span style="font-weight:bold">if</span> (Sectors_xrc.r_count())
-{
-    CDB<span style="font-weight:bold">::</span>RESULT<span style="font-weight:bold">*</span> RP1 <span style="font-weight:bold">=</span> Sectors_xrc.r_begin();
-    id1 <span style="font-weight:bold">=</span> RP1<span style="font-weight:bold">-&gt;</span>id;
-    range1 <span style="font-weight:bold">=</span> RP1<span style="font-weight:bold">-&gt;</span>range;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>Sectors_xrc.ray_query(PortalsModel, P, dir, <span style="color:#099">500.0f</span>);
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> (Sectors_xrc.r_count())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CDB<span style="font-weight:bold">::</span>RESULT<span style="font-weight:bold">*</span> RP1 <span style="font-weight:bold">=</span> Sectors_xrc.r_begin();
+</span></span><span style="display:flex;"><span>    id1 <span style="font-weight:bold">=</span> RP1<span style="font-weight:bold">-&gt;</span>id;
+</span></span><span style="display:flex;"><span>    range1 <span style="font-weight:bold">=</span> RP1<span style="font-weight:bold">-&gt;</span>range;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>сярод статычнай геаметрыі</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">Sectors_xrc.ray_query(ObjectSpace.GetStaticModel(), P, dir, <span style="color:#099">500.0f</span>);
-<span style="font-weight:bold">if</span> (Sectors_xrc.r_count())
-{
-    CDB<span style="font-weight:bold">::</span>RESULT<span style="font-weight:bold">*</span> RP2 <span style="font-weight:bold">=</span> Sectors_xrc.r_begin();
-    id2 <span style="font-weight:bold">=</span> RP2<span style="font-weight:bold">-&gt;</span>id;
-    range2 <span style="font-weight:bold">=</span> RP2<span style="font-weight:bold">-&gt;</span>range;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>Sectors_xrc.ray_query(ObjectSpace.GetStaticModel(), P, dir, <span style="color:#099">500.0f</span>);
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> (Sectors_xrc.r_count())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CDB<span style="font-weight:bold">::</span>RESULT<span style="font-weight:bold">*</span> RP2 <span style="font-weight:bold">=</span> Sectors_xrc.r_begin();
+</span></span><span style="display:flex;"><span>    id2 <span style="font-weight:bold">=</span> RP2<span style="font-weight:bold">-&gt;</span>id;
+</span></span><span style="display:flex;"><span>    range2 <span style="font-weight:bold">=</span> RP2<span style="font-weight:bold">-&gt;</span>range;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 <p>Хто бліжэй да камеры, з таго нумар сектара і бярэцца.</p>
 <h3 id="траверс-сектараў">Траверс сектараў</h3>
 <p>Цяпер, калі мы маем сектар, то лёгка можам атрымаць усю яго статычную геаметрыю рэкурсійна</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">PortalTraverser.traverse(Sector, ViewBase, CameraPosition, FullTransform,
-	CPortalTraverser<span style="font-weight:bold">::</span>VQ_HOM
-  <span style="font-weight:bold">+</span> CPortalTraverser<span style="font-weight:bold">::</span>VQ_SSA
-  <span style="font-weight:bold">+</span> CPortalTraverser<span style="font-weight:bold">::</span>VQ_FADE);
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>PortalTraverser.traverse(Sector, ViewBase, CameraPosition, FullTransform,
+</span></span><span style="display:flex;"><span>	CPortalTraverser<span style="font-weight:bold">::</span>VQ_HOM
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold">+</span> CPortalTraverser<span style="font-weight:bold">::</span>VQ_SSA
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold">+</span> CPortalTraverser<span style="font-weight:bold">::</span>VQ_FADE);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Для гэтага існуе асобны аб&rsquo;ект <code>PortalTraverser</code>. Мы пачынаем са стартавага сектара, фрустума, пазіцыі камеры ў свеце, агульнай VP трансфармацыі і флагаў: HOM - правяраць таксама праз HOM, SSA - адбрасваць маленькія парталы і FADE - будаваць ліст &ldquo;зацямнённых&rdquo; парталаў.</p>
 <p>Калі прайсціся па крокам, то алгарытм выглядае проста:</p>
@@ -410,29 +410,29 @@
 <p>Калі абыход скончаны, для ўсіх трапіўшых нам сектарам &ldquo;склеіваем&rdquo; боксы нажніц. Падрабязнасцей пра нажніцы не будзе, так як усё роўна гэты код больш не выкарыстоўваецца. Задумка была адсякаць крыніцы святла праз scissors test відэакарты.</p>
 <h3 id="збор-геаметрыі">Збор геаметрыі</h3>
 <p>Скончваюцца гэтыя дажынкі зборам усёй статычнай геаметрыі, якая знаходзіцца ва ўсіх сектарах і трапляе ва ўсе іх фрустумы.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="font-weight:bold">for</span> (<span style="color:#458;font-weight:bold">int</span> s_it <span style="font-weight:bold">=</span> <span style="color:#099">0</span>; s_it <span style="font-weight:bold">&lt;</span> PortalTraverser.r_sectors.size(); s_it<span style="font-weight:bold">++</span>)
-{
-    CSector<span style="font-weight:bold">*</span> sector <span style="font-weight:bold">=</span> PortalTraverser.r_sectors[s_it];
-    dxRender_Visual<span style="font-weight:bold">*</span> root <span style="font-weight:bold">=</span> sector<span style="font-weight:bold">-&gt;</span>root();
-    <span style="font-weight:bold">for</span> (u32 v_it <span style="font-weight:bold">=</span> <span style="color:#099">0</span>; v_it <span style="font-weight:bold">&lt;</span> sector<span style="font-weight:bold">-&gt;</span>r_frustums.size(); v_it<span style="font-weight:bold">++</span>)
-    {
-    	add_Geometry(root, sector<span style="font-weight:bold">-&gt;</span>r_frustums[v_it]);
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="font-weight:bold">for</span> (<span style="color:#458;font-weight:bold">int</span> s_it <span style="font-weight:bold">=</span> <span style="color:#099">0</span>; s_it <span style="font-weight:bold">&lt;</span> PortalTraverser.r_sectors.size(); s_it<span style="font-weight:bold">++</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CSector<span style="font-weight:bold">*</span> sector <span style="font-weight:bold">=</span> PortalTraverser.r_sectors[s_it];
+</span></span><span style="display:flex;"><span>    dxRender_Visual<span style="font-weight:bold">*</span> root <span style="font-weight:bold">=</span> sector<span style="font-weight:bold">-&gt;</span>root();
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> (u32 v_it <span style="font-weight:bold">=</span> <span style="color:#099">0</span>; v_it <span style="font-weight:bold">&lt;</span> sector<span style="font-weight:bold">-&gt;</span>r_frustums.size(); v_it<span style="font-weight:bold">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    	add_Geometry(root, sector<span style="font-weight:bold">-&gt;</span>r_frustums[v_it]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Але пра гэта ўжо потым.</p>
 
@@ -570,7 +570,7 @@
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  vTurbine / monkeyWzr 
+    Copyright  &copy; 2023  vTurbine / monkeyWzr 
   </div>
   <div class="footer-right">
     <nav>

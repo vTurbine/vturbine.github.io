@@ -10,17 +10,17 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Ці магчыма падмяніць стэк Windows трэду?" />
 <meta property="og:description" content="TLDR; так, магчыма
- Так атрымалася, что TLG зачымсці карыстаецца pthread_attr_setstackaddr. Калі пакапаць глыбей, то месц, з якіх вызываецца гэта функцыя, толькі два і ўсе яны ў ініцыялізацыі PS4 рэндэра: трэды ps4render і ps4render_submitDone. Памеры стэкаў 512К і 32К суадносна. Я пакуль не ведаю чаму менавіта так трэдам ставіцца память, але трэ ўсё ж такі рэалізаваць падтрымку гэтага функцыянала.
+Так атрымалася, что TLG зачымсці карыстаецца pthread_attr_setstackaddr. Калі пакапаць глыбей, то месц, з якіх вызываецца гэта функцыя, толькі два і ўсе яны ў ініцыялізацыі PS4 рэндэра: трэды ps4render і ps4render_submitDone. Памеры стэкаў 512К і 32К суадносна. Я пакуль не ведаю чаму менавіта так трэдам ставіцца память, але трэ ўсё ж такі рэалізаваць падтрымку гэтага функцыянала.
 Як гэта НЕ працуе Па-першае, я паспрабаў рэкамедацыі са стэк-аверфлоў1 з выкарыстаннем SetThreadContext." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vturbine.github.io/posts/2021-02/post0/" />
+<meta property="og:url" content="https://vturbine.github.io/posts/2021-02/post0/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-02-16T20:41:00+00:00" />
 <meta property="article:modified_time" content="2021-02-16T20:41:00+00:00" />
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ці магчыма падмяніць стэк Windows трэду?"/>
 <meta name="twitter:description" content="TLDR; так, магчыма
- Так атрымалася, что TLG зачымсці карыстаецца pthread_attr_setstackaddr. Калі пакапаць глыбей, то месц, з якіх вызываецца гэта функцыя, толькі два і ўсе яны ў ініцыялізацыі PS4 рэндэра: трэды ps4render і ps4render_submitDone. Памеры стэкаў 512К і 32К суадносна. Я пакуль не ведаю чаму менавіта так трэдам ставіцца память, але трэ ўсё ж такі рэалізаваць падтрымку гэтага функцыянала.
+Так атрымалася, что TLG зачымсці карыстаецца pthread_attr_setstackaddr. Калі пакапаць глыбей, то месц, з якіх вызываецца гэта функцыя, толькі два і ўсе яны ў ініцыялізацыі PS4 рэндэра: трэды ps4render і ps4render_submitDone. Памеры стэкаў 512К і 32К суадносна. Я пакуль не ведаю чаму менавіта так трэдам ставіцца память, але трэ ўсё ж такі рэалізаваць падтрымку гэтага функцыянала.
 Як гэта НЕ працуе Па-першае, я паспрабаў рэкамедацыі са стэк-аверфлоў1 з выкарыстаннем SetThreadContext."/>
 
   
@@ -150,7 +150,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fvturbine.github.io%2fposts%2f2021-02%2fpost0%2f&name=%d0%a6%d1%96%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%20%d0%bf%d0%b0%d0%b4%d0%bc%d1%8f%d0%bd%d1%96%d1%86%d1%8c%20%d1%81%d1%82%d1%8d%d0%ba%20Windows%20%d1%82%d1%80%d1%8d%d0%b4%d1%83%3f&description=TLDR%3b%20%d1%82%d0%b0%d0%ba%2c%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%0a%20%d0%a2%d0%b0%d0%ba%20%d0%b0%d1%82%d1%80%d1%8b%d0%bc%d0%b0%d0%bb%d0%b0%d1%81%d1%8f%2c%20%d1%87%d1%82%d0%be%20TLG%20%d0%b7%d0%b0%d1%87%d1%8b%d0%bc%d1%81%d1%86%d1%96%20%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20pthread_attr_setstackaddr.%20%d0%9a%d0%b0%d0%bb%d1%96%20%d0%bf%d0%b0%d0%ba%d0%b0%d0%bf%d0%b0%d1%86%d1%8c%20%d0%b3%d0%bb%d1%8b%d0%b1%d0%b5%d0%b9%2c%20%d1%82%d0%be%20%d0%bc%d0%b5%d1%81%d1%86%2c%20%d0%b7%20%d1%8f%d0%ba%d1%96%d1%85%20%d0%b2%d1%8b%d0%b7%d1%8b%d0%b2%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20%d0%b3%d1%8d%d1%82%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%2c%20%d1%82%d0%be%d0%bb%d1%8c%d0%ba%d1%96%20%d0%b4%d0%b2%d0%b0%20%d1%96%20%d1%9e%d1%81%d0%b5%20%d1%8f%d0%bd%d1%8b%20%d1%9e%20%d1%96%d0%bd%d1%96%d1%86%d1%8b%d1%8f%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%8b%d1%96%20PS4%20%d1%80%d1%8d%d0%bd%d0%b4%d1%8d%d1%80%d0%b0%3a%20%d1%82%d1%80%d1%8d%d0%b4%d1%8b%20ps4render%20%d1%96%20ps4render_submitDone.%20%d0%9f%d0%b0%d0%bc%d0%b5%d1%80%d1%8b%20%d1%81%d1%82%d1%8d%d0%ba%d0%b0%d1%9e%20512%d0%9a%20%d1%96%2032%d0%9a%20%d1%81%d1%83%d0%b0%d0%b4%d0%bd%d0%be%d1%81%d0%bd%d0%b0.%20%d0%af%20%d0%bf%d0%b0%d0%ba%d1%83%d0%bb%d1%8c%20%d0%bd%d0%b5%20%d0%b2%d0%b5%d0%b4%d0%b0%d1%8e%20%d1%87%d0%b0%d0%bc%d1%83%20%d0%bc%d0%b5%d0%bd%d0%b0%d0%b2%d1%96%d1%82%d0%b0%20%d1%82%d0%b0%d0%ba%20%d1%82%d1%80%d1%8d%d0%b4%d0%b0%d0%bc%20%d1%81%d1%82%d0%b0%d0%b2%d1%96%d1%86%d1%86%d0%b0%20%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c%2c%20%d0%b0%d0%bb%d0%b5%20%d1%82%d1%80%d1%8d%20%d1%9e%d1%81%d1%91%20%d0%b6%20%d1%82%d0%b0%d0%ba%d1%96%20%d1%80%d1%8d%d0%b0%d0%bb%d1%96%d0%b7%d0%b0%d0%b2%d0%b0%d1%86%d1%8c%20%d0%bf%d0%b0%d0%b4%d1%82%d1%80%d1%8b%d0%bc%d0%ba%d1%83%20%d0%b3%d1%8d%d1%82%d0%b0%d0%b3%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%d0%bd%d0%b0%d0%bb%d0%b0.%0a%d0%af%d0%ba%20%d0%b3%d1%8d%d1%82%d0%b0%20%d0%9d%d0%95%20%d0%bf%d1%80%d0%b0%d1%86%d1%83%d0%b5%20%d0%9f%d0%b0-%d0%bf%d0%b5%d1%80%d1%88%d0%b0%d0%b5%2c%20%d1%8f%20%d0%bf%d0%b0%d1%81%d0%bf%d1%80%d0%b0%d0%b1%d0%b0%d1%9e%20%d1%80%d1%8d%d0%ba%d0%b0%d0%bc%d0%b5%d0%b4%d0%b0%d1%86%d1%8b%d1%96%20%d1%81%d0%b0%20%d1%81%d1%82%d1%8d%d0%ba-%d0%b0%d0%b2%d0%b5%d1%80%d1%84%d0%bb%d0%be%d1%9e1%20%d0%b7%20%d0%b2%d1%8b%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d0%b5%d0%bc%20SetThreadContext.">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fvturbine.github.io%2fposts%2f2021-02%2fpost0%2f&name=%d0%a6%d1%96%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%20%d0%bf%d0%b0%d0%b4%d0%bc%d1%8f%d0%bd%d1%96%d1%86%d1%8c%20%d1%81%d1%82%d1%8d%d0%ba%20Windows%20%d1%82%d1%80%d1%8d%d0%b4%d1%83%3f&description=TLDR%3b%20%d1%82%d0%b0%d0%ba%2c%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%0a%d0%a2%d0%b0%d0%ba%20%d0%b0%d1%82%d1%80%d1%8b%d0%bc%d0%b0%d0%bb%d0%b0%d1%81%d1%8f%2c%20%d1%87%d1%82%d0%be%20TLG%20%d0%b7%d0%b0%d1%87%d1%8b%d0%bc%d1%81%d1%86%d1%96%20%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20pthread_attr_setstackaddr.%20%d0%9a%d0%b0%d0%bb%d1%96%20%d0%bf%d0%b0%d0%ba%d0%b0%d0%bf%d0%b0%d1%86%d1%8c%20%d0%b3%d0%bb%d1%8b%d0%b1%d0%b5%d0%b9%2c%20%d1%82%d0%be%20%d0%bc%d0%b5%d1%81%d1%86%2c%20%d0%b7%20%d1%8f%d0%ba%d1%96%d1%85%20%d0%b2%d1%8b%d0%b7%d1%8b%d0%b2%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20%d0%b3%d1%8d%d1%82%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%2c%20%d1%82%d0%be%d0%bb%d1%8c%d0%ba%d1%96%20%d0%b4%d0%b2%d0%b0%20%d1%96%20%d1%9e%d1%81%d0%b5%20%d1%8f%d0%bd%d1%8b%20%d1%9e%20%d1%96%d0%bd%d1%96%d1%86%d1%8b%d1%8f%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%8b%d1%96%20PS4%20%d1%80%d1%8d%d0%bd%d0%b4%d1%8d%d1%80%d0%b0%3a%20%d1%82%d1%80%d1%8d%d0%b4%d1%8b%20ps4render%20%d1%96%20ps4render_submitDone.%20%d0%9f%d0%b0%d0%bc%d0%b5%d1%80%d1%8b%20%d1%81%d1%82%d1%8d%d0%ba%d0%b0%d1%9e%20512%d0%9a%20%d1%96%2032%d0%9a%20%d1%81%d1%83%d0%b0%d0%b4%d0%bd%d0%be%d1%81%d0%bd%d0%b0.%20%d0%af%20%d0%bf%d0%b0%d0%ba%d1%83%d0%bb%d1%8c%20%d0%bd%d0%b5%20%d0%b2%d0%b5%d0%b4%d0%b0%d1%8e%20%d1%87%d0%b0%d0%bc%d1%83%20%d0%bc%d0%b5%d0%bd%d0%b0%d0%b2%d1%96%d1%82%d0%b0%20%d1%82%d0%b0%d0%ba%20%d1%82%d1%80%d1%8d%d0%b4%d0%b0%d0%bc%20%d1%81%d1%82%d0%b0%d0%b2%d1%96%d1%86%d1%86%d0%b0%20%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c%2c%20%d0%b0%d0%bb%d0%b5%20%d1%82%d1%80%d1%8d%20%d1%9e%d1%81%d1%91%20%d0%b6%20%d1%82%d0%b0%d0%ba%d1%96%20%d1%80%d1%8d%d0%b0%d0%bb%d1%96%d0%b7%d0%b0%d0%b2%d0%b0%d1%86%d1%8c%20%d0%bf%d0%b0%d0%b4%d1%82%d1%80%d1%8b%d0%bc%d0%ba%d1%83%20%d0%b3%d1%8d%d1%82%d0%b0%d0%b3%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%d0%bd%d0%b0%d0%bb%d0%b0.%0a%d0%af%d0%ba%20%d0%b3%d1%8d%d1%82%d0%b0%20%d0%9d%d0%95%20%d0%bf%d1%80%d0%b0%d1%86%d1%83%d0%b5%20%d0%9f%d0%b0-%d0%bf%d0%b5%d1%80%d1%88%d0%b0%d0%b5%2c%20%d1%8f%20%d0%bf%d0%b0%d1%81%d0%bf%d1%80%d0%b0%d0%b1%d0%b0%d1%9e%20%d1%80%d1%8d%d0%ba%d0%b0%d0%bc%d0%b5%d0%b4%d0%b0%d1%86%d1%8b%d1%96%20%d1%81%d0%b0%20%d1%81%d1%82%d1%8d%d0%ba-%d0%b0%d0%b2%d0%b5%d1%80%d1%84%d0%bb%d0%be%d1%9e1%20%d0%b7%20%d0%b2%d1%8b%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d0%b5%d0%bc%20SetThreadContext.">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -209,90 +209,90 @@
 <p>Па-першае, я паспрабаў рэкамедацыі са стэк-аверфлоў<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> з выкарыстаннем <code>SetThreadContext</code>. Правы доступа я не выстаўляў, але ўжо пасля вызаву <code>GetThreadContext</code> прыйшоў да высновы, што гэта працавать не будзе &ndash; атрыманы кантэкст пусты. Усе нулі. У адказе таксама было пра Win64 і неабходнасць патчыць TIB, што прывяло мяне да наступнай парады<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Што ж, залез я ў TIB &ndash; сапраўды, стаіць адрас стэка, але ягоная падмена ні на што не ўплывае. То бок у трэдзе ў TIB я бачу патрэбны мне адрас (з боку трэда TIB даступны праз FS/GS рэгістр<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>), а на самой справе RSP/RBP усё ж тыя, што і былі да змены.</p>
 <h2 id="што-дапамагло">Што дапамагло</h2>
 <p>Дапамог стары трык з парачкай <code>setjmp/longjmp</code>. Ідэя ў тым, што <code>setjmp</code> захоўвае рэгістравы кантэкст, які можна змяніць і потым аднавіць праз <code>longjmp</code>. Менавіта гэтыя функцыі незручныя, бо фармат кантэксту не вызначан і будзе залежаць ад кампілятара. Таму лепш выкарыстоўваць неправераныя й недакументаваныя аналагі віндоўз:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="font-weight:bold">static</span> <span style="color:#458;font-weight:bold">uint8_t</span> Stack[<span style="color:#099">0x2000</span>]; <span style="color:#998;font-style:italic">// сховішча для стэка
-</span><span style="color:#998;font-style:italic"></span>
-<span style="color:#998;font-style:italic">// дзесці ў main
-</span><span style="color:#998;font-style:italic"></span>HANDLE h <span style="font-weight:bold">=</span> CreateThread(<span style="color:#999">NULL</span>, <span style="color:#099">0x2000</span>, threadFuncWrapper, <span style="color:#999">NULL</span>,
-                        CREATE_SUSPENDED, <span style="font-weight:bold">&amp;</span>tid);
-<span style="color:#998;font-style:italic">//...
-</span><span style="color:#998;font-style:italic"></span>
-<span style="color:#998;font-style:italic">// абгортка функцыі трэда
-</span><span style="color:#998;font-style:italic"></span>CONTEXT ctx;
-LPVOID  param;
-DWORD WINAPI <span style="color:#900;font-weight:bold">threadFuncWrapper</span>(LPVOID lpThreadParameter)
-{
-    param <span style="font-weight:bold">=</span> lpThreadParameter;
-    
-    RtlCaptureContext(<span style="font-weight:bold">&amp;</span>ctx);
-    <span style="font-weight:bold">if</span> (ctx.Rax <span style="font-weight:bold">==</span> <span style="color:#099">0x1234</span>)
-    {
-        threadFunc(param);
-    }
-    <span style="font-weight:bold">else</span>
-    {
-        ctx.Rbp <span style="font-weight:bold">=</span> (DWORD64)<span style="font-weight:bold">&amp;</span>Stack <span style="font-weight:bold">+</span> <span style="color:#099">0x2000</span>;
-        ctx.Rsp <span style="font-weight:bold">=</span> (DWORD64)<span style="font-weight:bold">&amp;</span>Stack <span style="font-weight:bold">+</span> <span style="color:#099">0x2000</span>;
-        ctx.Rax <span style="font-weight:bold">=</span> <span style="color:#099">0x1234</span>;
-        RtlRestoreContext(<span style="font-weight:bold">&amp;</span>ctx, <span style="color:#999">NULL</span>);
-    }
-
-    <span style="color:#998;font-style:italic">// Завяршэнне трэда. Тут можна аднавіць іншы кантэкст з
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// арыгінальнымі RBP/RSP
-</span><span style="color:#998;font-style:italic"></span>    Sleep(INFINITE);
-    <span style="font-weight:bold">return</span> <span style="color:#099">0</span>;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="font-weight:bold">static</span> <span style="color:#458;font-weight:bold">uint8_t</span> Stack[<span style="color:#099">0x2000</span>]; <span style="color:#998;font-style:italic">// сховішча для стэка
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// дзесці ў main
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HANDLE h <span style="font-weight:bold">=</span> CreateThread(<span style="color:#999">NULL</span>, <span style="color:#099">0x2000</span>, threadFuncWrapper, <span style="color:#999">NULL</span>,
+</span></span><span style="display:flex;"><span>                        CREATE_SUSPENDED, <span style="font-weight:bold">&amp;</span>tid);
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// абгортка функцыі трэда
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>CONTEXT ctx;
+</span></span><span style="display:flex;"><span>LPVOID  param;
+</span></span><span style="display:flex;"><span>DWORD WINAPI <span style="color:#900;font-weight:bold">threadFuncWrapper</span>(LPVOID lpThreadParameter)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    param <span style="font-weight:bold">=</span> lpThreadParameter;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    RtlCaptureContext(<span style="font-weight:bold">&amp;</span>ctx);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">if</span> (ctx.Rax <span style="font-weight:bold">==</span> <span style="color:#099">0x1234</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        threadFunc(param);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ctx.Rbp <span style="font-weight:bold">=</span> (DWORD64)<span style="font-weight:bold">&amp;</span>Stack <span style="font-weight:bold">+</span> <span style="color:#099">0x2000</span>;
+</span></span><span style="display:flex;"><span>        ctx.Rsp <span style="font-weight:bold">=</span> (DWORD64)<span style="font-weight:bold">&amp;</span>Stack <span style="font-weight:bold">+</span> <span style="color:#099">0x2000</span>;
+</span></span><span style="display:flex;"><span>        ctx.Rax <span style="font-weight:bold">=</span> <span style="color:#099">0x1234</span>;
+</span></span><span style="display:flex;"><span>        RtlRestoreContext(<span style="font-weight:bold">&amp;</span>ctx, <span style="color:#999">NULL</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// Завяршэнне трэда. Тут можна аднавіць іншы кантэкст з
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// арыгінальнымі RBP/RSP
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    Sleep(INFINITE);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
-</div><section class="footnotes" role="doc-endnotes">
+</div><div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://stackoverflow.com/questions/57564731/how-to-set-the-address-of-a-thread-stack-in-win32">How to set the address of a thread stack in Win32?</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p><a href="https://stackoverflow.com/questions/57564731/how-to-set-the-address-of-a-thread-stack-in-win32">How to set the address of a thread stack in Win32?</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://stackoverflow.com/questions/8751240/how-can-one-process-access-foreign-tib">How can one process access foreign TIB?</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:2">
+<p><a href="https://stackoverflow.com/questions/8751240/how-can-one-process-access-foreign-tib">How can one process access foreign TIB?</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:3" role="doc-endnote">
-<p><a href="https://stackoverflow.com/questions/16383030/access-a-spawned-processs-tib-through-fs-register">Access a spawned process&rsquo;s TIB through FS register?</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:3">
+<p><a href="https://stackoverflow.com/questions/16383030/access-a-spawned-processs-tib-through-fs-register">Access a spawned process&rsquo;s TIB through FS register?</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
     </div>
   </article>
@@ -384,7 +384,7 @@ DWORD WINAPI <span style="color:#900;font-weight:bold">threadFuncWrapper</span>(
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fvturbine.github.io%2fposts%2f2021-02%2fpost0%2f&name=%d0%a6%d1%96%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%20%d0%bf%d0%b0%d0%b4%d0%bc%d1%8f%d0%bd%d1%96%d1%86%d1%8c%20%d1%81%d1%82%d1%8d%d0%ba%20Windows%20%d1%82%d1%80%d1%8d%d0%b4%d1%83%3f&description=TLDR%3b%20%d1%82%d0%b0%d0%ba%2c%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%0a%20%d0%a2%d0%b0%d0%ba%20%d0%b0%d1%82%d1%80%d1%8b%d0%bc%d0%b0%d0%bb%d0%b0%d1%81%d1%8f%2c%20%d1%87%d1%82%d0%be%20TLG%20%d0%b7%d0%b0%d1%87%d1%8b%d0%bc%d1%81%d1%86%d1%96%20%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20pthread_attr_setstackaddr.%20%d0%9a%d0%b0%d0%bb%d1%96%20%d0%bf%d0%b0%d0%ba%d0%b0%d0%bf%d0%b0%d1%86%d1%8c%20%d0%b3%d0%bb%d1%8b%d0%b1%d0%b5%d0%b9%2c%20%d1%82%d0%be%20%d0%bc%d0%b5%d1%81%d1%86%2c%20%d0%b7%20%d1%8f%d0%ba%d1%96%d1%85%20%d0%b2%d1%8b%d0%b7%d1%8b%d0%b2%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20%d0%b3%d1%8d%d1%82%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%2c%20%d1%82%d0%be%d0%bb%d1%8c%d0%ba%d1%96%20%d0%b4%d0%b2%d0%b0%20%d1%96%20%d1%9e%d1%81%d0%b5%20%d1%8f%d0%bd%d1%8b%20%d1%9e%20%d1%96%d0%bd%d1%96%d1%86%d1%8b%d1%8f%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%8b%d1%96%20PS4%20%d1%80%d1%8d%d0%bd%d0%b4%d1%8d%d1%80%d0%b0%3a%20%d1%82%d1%80%d1%8d%d0%b4%d1%8b%20ps4render%20%d1%96%20ps4render_submitDone.%20%d0%9f%d0%b0%d0%bc%d0%b5%d1%80%d1%8b%20%d1%81%d1%82%d1%8d%d0%ba%d0%b0%d1%9e%20512%d0%9a%20%d1%96%2032%d0%9a%20%d1%81%d1%83%d0%b0%d0%b4%d0%bd%d0%be%d1%81%d0%bd%d0%b0.%20%d0%af%20%d0%bf%d0%b0%d0%ba%d1%83%d0%bb%d1%8c%20%d0%bd%d0%b5%20%d0%b2%d0%b5%d0%b4%d0%b0%d1%8e%20%d1%87%d0%b0%d0%bc%d1%83%20%d0%bc%d0%b5%d0%bd%d0%b0%d0%b2%d1%96%d1%82%d0%b0%20%d1%82%d0%b0%d0%ba%20%d1%82%d1%80%d1%8d%d0%b4%d0%b0%d0%bc%20%d1%81%d1%82%d0%b0%d0%b2%d1%96%d1%86%d1%86%d0%b0%20%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c%2c%20%d0%b0%d0%bb%d0%b5%20%d1%82%d1%80%d1%8d%20%d1%9e%d1%81%d1%91%20%d0%b6%20%d1%82%d0%b0%d0%ba%d1%96%20%d1%80%d1%8d%d0%b0%d0%bb%d1%96%d0%b7%d0%b0%d0%b2%d0%b0%d1%86%d1%8c%20%d0%bf%d0%b0%d0%b4%d1%82%d1%80%d1%8b%d0%bc%d0%ba%d1%83%20%d0%b3%d1%8d%d1%82%d0%b0%d0%b3%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%d0%bd%d0%b0%d0%bb%d0%b0.%0a%d0%af%d0%ba%20%d0%b3%d1%8d%d1%82%d0%b0%20%d0%9d%d0%95%20%d0%bf%d1%80%d0%b0%d1%86%d1%83%d0%b5%20%d0%9f%d0%b0-%d0%bf%d0%b5%d1%80%d1%88%d0%b0%d0%b5%2c%20%d1%8f%20%d0%bf%d0%b0%d1%81%d0%bf%d1%80%d0%b0%d0%b1%d0%b0%d1%9e%20%d1%80%d1%8d%d0%ba%d0%b0%d0%bc%d0%b5%d0%b4%d0%b0%d1%86%d1%8b%d1%96%20%d1%81%d0%b0%20%d1%81%d1%82%d1%8d%d0%ba-%d0%b0%d0%b2%d0%b5%d1%80%d1%84%d0%bb%d0%be%d1%9e1%20%d0%b7%20%d0%b2%d1%8b%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d0%b5%d0%bc%20SetThreadContext.">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fvturbine.github.io%2fposts%2f2021-02%2fpost0%2f&name=%d0%a6%d1%96%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%20%d0%bf%d0%b0%d0%b4%d0%bc%d1%8f%d0%bd%d1%96%d1%86%d1%8c%20%d1%81%d1%82%d1%8d%d0%ba%20Windows%20%d1%82%d1%80%d1%8d%d0%b4%d1%83%3f&description=TLDR%3b%20%d1%82%d0%b0%d0%ba%2c%20%d0%bc%d0%b0%d0%b3%d1%87%d1%8b%d0%bc%d0%b0%0a%d0%a2%d0%b0%d0%ba%20%d0%b0%d1%82%d1%80%d1%8b%d0%bc%d0%b0%d0%bb%d0%b0%d1%81%d1%8f%2c%20%d1%87%d1%82%d0%be%20TLG%20%d0%b7%d0%b0%d1%87%d1%8b%d0%bc%d1%81%d1%86%d1%96%20%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20pthread_attr_setstackaddr.%20%d0%9a%d0%b0%d0%bb%d1%96%20%d0%bf%d0%b0%d0%ba%d0%b0%d0%bf%d0%b0%d1%86%d1%8c%20%d0%b3%d0%bb%d1%8b%d0%b1%d0%b5%d0%b9%2c%20%d1%82%d0%be%20%d0%bc%d0%b5%d1%81%d1%86%2c%20%d0%b7%20%d1%8f%d0%ba%d1%96%d1%85%20%d0%b2%d1%8b%d0%b7%d1%8b%d0%b2%d0%b0%d0%b5%d1%86%d1%86%d0%b0%20%d0%b3%d1%8d%d1%82%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%2c%20%d1%82%d0%be%d0%bb%d1%8c%d0%ba%d1%96%20%d0%b4%d0%b2%d0%b0%20%d1%96%20%d1%9e%d1%81%d0%b5%20%d1%8f%d0%bd%d1%8b%20%d1%9e%20%d1%96%d0%bd%d1%96%d1%86%d1%8b%d1%8f%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%8b%d1%96%20PS4%20%d1%80%d1%8d%d0%bd%d0%b4%d1%8d%d1%80%d0%b0%3a%20%d1%82%d1%80%d1%8d%d0%b4%d1%8b%20ps4render%20%d1%96%20ps4render_submitDone.%20%d0%9f%d0%b0%d0%bc%d0%b5%d1%80%d1%8b%20%d1%81%d1%82%d1%8d%d0%ba%d0%b0%d1%9e%20512%d0%9a%20%d1%96%2032%d0%9a%20%d1%81%d1%83%d0%b0%d0%b4%d0%bd%d0%be%d1%81%d0%bd%d0%b0.%20%d0%af%20%d0%bf%d0%b0%d0%ba%d1%83%d0%bb%d1%8c%20%d0%bd%d0%b5%20%d0%b2%d0%b5%d0%b4%d0%b0%d1%8e%20%d1%87%d0%b0%d0%bc%d1%83%20%d0%bc%d0%b5%d0%bd%d0%b0%d0%b2%d1%96%d1%82%d0%b0%20%d1%82%d0%b0%d0%ba%20%d1%82%d1%80%d1%8d%d0%b4%d0%b0%d0%bc%20%d1%81%d1%82%d0%b0%d0%b2%d1%96%d1%86%d1%86%d0%b0%20%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c%2c%20%d0%b0%d0%bb%d0%b5%20%d1%82%d1%80%d1%8d%20%d1%9e%d1%81%d1%91%20%d0%b6%20%d1%82%d0%b0%d0%ba%d1%96%20%d1%80%d1%8d%d0%b0%d0%bb%d1%96%d0%b7%d0%b0%d0%b2%d0%b0%d1%86%d1%8c%20%d0%bf%d0%b0%d0%b4%d1%82%d1%80%d1%8b%d0%bc%d0%ba%d1%83%20%d0%b3%d1%8d%d1%82%d0%b0%d0%b3%d0%b0%20%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%8b%d1%8f%d0%bd%d0%b0%d0%bb%d0%b0.%0a%d0%af%d0%ba%20%d0%b3%d1%8d%d1%82%d0%b0%20%d0%9d%d0%95%20%d0%bf%d1%80%d0%b0%d1%86%d1%83%d0%b5%20%d0%9f%d0%b0-%d0%bf%d0%b5%d1%80%d1%88%d0%b0%d0%b5%2c%20%d1%8f%20%d0%bf%d0%b0%d1%81%d0%bf%d1%80%d0%b0%d0%b1%d0%b0%d1%9e%20%d1%80%d1%8d%d0%ba%d0%b0%d0%bc%d0%b5%d0%b4%d0%b0%d1%86%d1%8b%d1%96%20%d1%81%d0%b0%20%d1%81%d1%82%d1%8d%d0%ba-%d0%b0%d0%b2%d0%b5%d1%80%d1%84%d0%bb%d0%be%d1%9e1%20%d0%b7%20%d0%b2%d1%8b%d0%ba%d0%b0%d1%80%d1%8b%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d0%b5%d0%bc%20SetThreadContext.">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -415,7 +415,7 @@ DWORD WINAPI <span style="color:#900;font-weight:bold">threadFuncWrapper</span>(
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  vTurbine / monkeyWzr 
+    Copyright  &copy; 2023  vTurbine / monkeyWzr 
   </div>
   <div class="footer-right">
     <nav>
